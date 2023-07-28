@@ -39,13 +39,13 @@
     {% if score >= 80 %}
     <div class="alert alert-success">
        <!--HINT Display passed info -->
-       <span><strong>Felicitaciones, {{ user.first_name }}!! </strong>Has aprobado el curso con {{ points }} de {{ max_points }}</span>
+       <span><strong>Felicitaciones, {{ user.first_name }}!! </strong>Has aprobado el curso {{ points }} de {{ max_points }}</span>
        
     </div>
         {% else %}
         <div class="alert alert-danger">
             <!--HINT Display failed info -->
-            <span><strong>Failed </strong>Sorry, {{ user.first_name }} You have failed the exam with score  {{ points }}/{{ max_points }}</span>
+            <span><strong>Fallo </strong>Lo siento, {{ user.first_name }} Has reprobado el examen  {{ points }}/{{ max_points }}</span>
         </div>
         <a class="btn btn-link text-danger" href="{% url 'onlinecourse:course_details' course.id %}">Re-test</a>
         {% endif %}

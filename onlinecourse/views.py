@@ -153,7 +153,7 @@ def show_exam_result(request, course_id, submission_id):
     print('choices', choices)
     # For each selected choice, check if it is a correct answer or not
     points = 0
-    max_points = 0
+    max_points = 100
     questions = set()
     print('number of choices', len(choices))
     for choice in choices:
@@ -162,12 +162,12 @@ def show_exam_result(request, course_id, submission_id):
         selected_answers.append(choice.choice_text)
         if(question.id not in questions):
             questions.add(question.id)
-            max_points += grade
+            
             if choice.is_correct:
                 points += grade
     context['points'] = int(points)
     context['max_points'] = int(max_points)
-    context['score'] = int(points/max_points * 100)
+    context['score'] = int(points)
     context['course'] = course
     context['selected_answers'] = selected_answers
 
